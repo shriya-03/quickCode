@@ -1,20 +1,14 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-     
-     <title>pizzaria</title>
-</head>
-<body>
-     <h1>Welcome to the Pizzaria </h1>
-     <p> lets customise variuos kinds of pizzas</p>
-     <ul>
+
+
+{% block title %}Pizza List{% endblock %}
+
+{% block content %}
+<h2>Available Pizzas</h2>
+<ul>
     {% for pizza in pizzas %}
         <li><a href="{% url 'pizza_detail' pizza.id %}">{{ pizza.name }}</a></li>
+    {% empty %}
+        <li>No pizzas available.</li>
     {% endfor %}
 </ul>
-</body>
-</html> 
+{% endblock %}
