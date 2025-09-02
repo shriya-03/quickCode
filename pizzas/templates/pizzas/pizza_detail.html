@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ pizza.name }}</title>
+</head>
+<body>
+    <h1>{{ pizza.name }}</h1>
+    <h2>Toppings:</h2>
+    <ul>
+        {% for topping in pizza.topping_set.all %}
+            <li>{{ topping.name }}</li>
+        {% empty %}
+            <li>No toppings yet.</li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
